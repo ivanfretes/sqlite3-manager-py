@@ -33,8 +33,8 @@ class SQLiteManager(AbstractSQLite):
 class RowEntity():
     ''' Conjunto de atributos de una entidad '''
 
-    def __init__(self):
-        pass
+    def __init__(self, table_name):
+        self.table_name = table_name
 
     def _columns(self, **columns):
         for column_name in columns:
@@ -69,12 +69,7 @@ class CreateTableSQLite():
             '''))
 
 
-
-
-
-
 class InsertSqlite():
-
 
     def __init__(self, table_name, cursor):
         self.cursor = cursor
@@ -91,8 +86,6 @@ class InsertSqlite():
             print(''' La Logitud de Datos no coincide ''')
 
     def data_type(self, val):
-
-
         pass
 
     def rows(self, *rows):
@@ -103,6 +96,36 @@ class InsertSqlite():
         pass
 
 
+class SelectSqlite():
+
+    def __init__(self, cursor, row_entity):
+        self.cursor = cursor
+        self.row_entity = row_entity
+
+    def columns(self, columns = '*'):
+        self._query = "SELECT {} ".format(columns)
+
+
+    def inner_join(self, table_name, primary_key):
+        pass
+
+    def left_join(self, table_name, primary_key):
+        pass
+
+    def right_join(self, table_name, primary_key):
+        pass
+
+    def from_table(self, table_name, primary_key):
+
+
+    def query(self):
+        pass
+
+    def _and(self):
+        pass
+
+    def _or(self):
+        pass
 
 
 def Sqlite(sql_file):
